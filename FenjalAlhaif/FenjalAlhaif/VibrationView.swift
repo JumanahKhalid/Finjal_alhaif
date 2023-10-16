@@ -12,7 +12,8 @@ import AVFoundation
 struct VibrationView: View {
     @State private var isVibrating = false
     @State private var vibrationDuration: Double = 0.0
-    @State var didTap = false
+    //@State var didTap = false
+    @State private var goToIng: Bool = false
     let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "pour12", withExtension: "mp3")!)
     
     var body: some View {
@@ -34,6 +35,17 @@ struct VibrationView: View {
                 .animation(isVibrating ? .linear(duration: 0.1).repeatForever() : .default)
                 .offset(x: isVibrating ? 15 : 0, y: -20)
         }
+        Button(action: {
+            goToIng = true
+        }) {
+            Image(systemName: "arrow.right.circle")
+                .font(.system(size: 40))
+                .tint(.red)
+                .shadow(radius: 50)
+        }
+        .fullScreenCover(isPresented: $goToIng, content: {
+            sIngredients()
+        })
         
         .edgesIgnoringSafeArea(.all)
     }

@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ShamaliahRegion: View {
     let gifName: String
     @State private var isVibrating = false
-    @State var didTap = false
+    @State private var tapCount = 0 // Track the number of taps
     @State private var isPlaying = false
     @State private var navigateToTahona = false
     @StateObject private var background2 = Background2.shared
     @State private var isNextPageActive = false
+    @State private var isPresented = false
+    let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "صوت-الحمص", withExtension: "mp3")!)
     var body: some View {
         VStack {
             
@@ -43,33 +46,39 @@ struct ShamaliahRegion: View {
                     .animation(isVibrating ? .linear(duration: 0.5).repeatForever(autoreverses: true) : .default)
                 
                 Button("احمص") {
-                    self.didTap = true
-                    self.isVibrating.toggle()
+                    tapCount += 1 // Increment the tap count
+                    isVibrating.toggle()
+                    player?.play()
+                    
+                  
                 }
                 .font(.system(size: 40))
                 .frame(width: 430, height: 430)
                 .buttonStyle(.bordered)
                 .tint(.clear)
-                .shadow(radius:50)
+                .shadow(radius: 50)
                 .offset(x: 320, y: 50)
                 
                 if navigateToTahona {
                     Tahona().transition(.slide)
                 }
                 
-                Button(action: {
-                    navigateToTahona = true
-                }) {
-                    Text("انقلني إلى Tahona")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                if tapCount >= 3 { // Show the arrow button after 3 taps
+                    Button(action: {
+                      //isPresented = true
+                    navigateToTahona = true // Transition to Tahona view
+                    }) {
+                        Image(systemName: "arrow.right.circle")
+                            .font(.system(size: 40))
+                            .tint(.red)
+                            .shadow(radius:50)
+                            
+                    }
+                    .offset(x: 350, y: -10)
+                    //.fullScreenCover(isPresented: $isPresented, content: Tahona.init )
+                      
                 }
-                .offset(x: 0, y: 200)
             }
-            
         }
         .ignoresSafeArea()
     }

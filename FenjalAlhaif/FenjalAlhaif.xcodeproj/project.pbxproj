@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696DDB672ADD554700E9CE89 /* صوت-الحمص.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 696DDB662ADD554700E9CE89 /* صوت-الحمص.mp3 */; };
 		69C8432C2ADD25F300AAEC6E /* FenjalAlhaifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8432B2ADD25F300AAEC6E /* FenjalAlhaifApp.swift */; };
 		69C8432E2ADD25F300AAEC6E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8432D2ADD25F300AAEC6E /* ContentView.swift */; };
 		69C843302ADD25F400AAEC6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C8432F2ADD25F400AAEC6E /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		696DDB662ADD554700E9CE89 /* صوت-الحمص.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "صوت-الحمص.mp3"; sourceTree = "<group>"; };
 		69C843282ADD25F300AAEC6E /* FenjalAlhaif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenjalAlhaif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C8432B2ADD25F300AAEC6E /* FenjalAlhaifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenjalAlhaifApp.swift; sourceTree = "<group>"; };
 		69C8432D2ADD25F300AAEC6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				69C843492ADD28C700AAEC6E /* background2.mp3 */,
 				69C8434B2ADD28D700AAEC6E /* home.sound.mp3 */,
 				69C8434D2ADD28FC00AAEC6E /* pour12.mp3 */,
+				696DDB662ADD554700E9CE89 /* صوت-الحمص.mp3 */,
 				69C8432F2ADD25F400AAEC6E /* Assets.xcassets */,
 				69C843312ADD25F400AAEC6E /* Preview Content */,
 				69C843392ADD26AF00AAEC6E /* GifImage.swift */,
@@ -178,6 +181,7 @@
 				69C843462ADD275A00AAEC6E /* خلفية الطاحونة.gif in Resources */,
 				69C8433E2ADD26EB00AAEC6E /* #5 غلي المكونات.gif in Resources */,
 				69C843422ADD271300AAEC6E /* # 2 Options page.gif in Resources */,
+				696DDB672ADD554700E9CE89 /* صوت-الحمص.mp3 in Resources */,
 				69C843332ADD25F400AAEC6E /* Preview Assets.xcassets in Resources */,
 				69C8434E2ADD28FC00AAEC6E /* pour12.mp3 in Resources */,
 				69C843482ADD27D700AAEC6E /* #1 Home page.gif in Resources */,
@@ -341,8 +345,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -369,8 +372,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

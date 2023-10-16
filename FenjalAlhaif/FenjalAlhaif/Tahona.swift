@@ -10,7 +10,7 @@ import SwiftUI
 struct Tahona: View {
     
    // @State private var isP: Bool = false
-    @State private var goToIng: Bool = false
+    //@State private var goToIng: Bool = false
     var body: some View {
         ZStack{
             
@@ -19,10 +19,7 @@ struct Tahona: View {
                 VibrationView()
             }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
            
-            Button("Next") {
-                goToIng = true
-            }
-            .fullScreenCover(isPresented: $goToIng, content: sIngredients.init )
+            
             
         }
     }

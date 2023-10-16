@@ -1,11 +1,5 @@
-//
-//  NajdRegion.swift
-//  FenjalAlhaif
-//
-//  Created by jumanah khalid albisher on 01/04/1445 AH.
-//
-
 import SwiftUI
+import AVFoundation
 
 struct NajdRegion: View {
     let gifName: String
@@ -15,7 +9,8 @@ struct NajdRegion: View {
     @State private var navigateToTahona = false
     @StateObject private var background2 = Background2.shared
     @State private var isNextPageActive = false
-    
+    @State private var isPresented = false
+    let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "صوت-الحمص", withExtension: "mp3")!)
     var body: some View {
         VStack {
             ZStack {
@@ -54,6 +49,7 @@ struct NajdRegion: View {
                 Button("احمص") {
                     tapCount += 1 // Increment the tap count
                     isVibrating.toggle()
+                    player?.play()
                     
                   
                 }
@@ -70,20 +66,21 @@ struct NajdRegion: View {
                 
                 if tapCount >= 3 { // Show the arrow button after 3 taps
                     Button(action: {
-                        navigateToTahona = true // Transition to Tahona view
+                      //isPresented = true
+                    navigateToTahona = true // Transition to Tahona view
                     }) {
                         Image(systemName: "arrow.right.circle")
                             .font(.system(size: 40))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .tint(.red)
+                            .shadow(radius:50)
+                            
                     }
-                    .offset(x: 0, y: 200)
+                    .offset(x: 350, y: -10)
+                    //.fullScreenCover(isPresented: $isPresented, content: Tahona.init )
+                      
                 }
             }
         }
         .ignoresSafeArea()
     }
 }
-
