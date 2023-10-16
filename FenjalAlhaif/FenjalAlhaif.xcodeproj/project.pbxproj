@@ -22,6 +22,11 @@
 		69C8434E2ADD28FC00AAEC6E /* pour12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C8434D2ADD28FC00AAEC6E /* pour12.mp3 */; };
 		69C843502ADD296B00AAEC6E /* oven1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 69C8434F2ADD296B00AAEC6E /* oven1.gif */; };
 		6A2FD61D2ADD40C2005DC35E /* RegionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2FD61C2ADD40C2005DC35E /* RegionsView.swift */; };
+		6AFF27902ADD475600FF4A19 /* NajdRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF278F2ADD475600FF4A19 /* NajdRegion.swift */; };
+		6AFF27922ADD477C00FF4A19 /* JanobRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF27912ADD477C00FF4A19 /* JanobRegion.swift */; };
+		6AFF27942ADD479F00FF4A19 /* ShamaliahRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF27932ADD479F00FF4A19 /* ShamaliahRegion.swift */; };
+		6AFF27962ADD47D300FF4A19 /* VibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF27952ADD47D300FF4A19 /* VibrationView.swift */; };
+		6AFF27982ADD481200FF4A19 /* Tahona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF27972ADD481200FF4A19 /* Tahona.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		69C8434D2ADD28FC00AAEC6E /* pour12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pour12.mp3; sourceTree = "<group>"; };
 		69C8434F2ADD296B00AAEC6E /* oven1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = oven1.gif; sourceTree = "<group>"; };
 		6A2FD61C2ADD40C2005DC35E /* RegionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsView.swift; sourceTree = "<group>"; };
+		6AFF278F2ADD475600FF4A19 /* NajdRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NajdRegion.swift; sourceTree = "<group>"; };
+		6AFF27912ADD477C00FF4A19 /* JanobRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanobRegion.swift; sourceTree = "<group>"; };
+		6AFF27932ADD479F00FF4A19 /* ShamaliahRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShamaliahRegion.swift; sourceTree = "<group>"; };
+		6AFF27952ADD47D300FF4A19 /* VibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationView.swift; sourceTree = "<group>"; };
+		6AFF27972ADD481200FF4A19 /* Tahona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tahona.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,12 @@
 			children = (
 				69C8432B2ADD25F300AAEC6E /* FenjalAlhaifApp.swift */,
 				69C8432D2ADD25F300AAEC6E /* ContentView.swift */,
+				6A2FD61C2ADD40C2005DC35E /* RegionsView.swift */,
+				6AFF27912ADD477C00FF4A19 /* JanobRegion.swift */,
+				6AFF27932ADD479F00FF4A19 /* ShamaliahRegion.swift */,
+				6AFF27952ADD47D300FF4A19 /* VibrationView.swift */,
+				6AFF27972ADD481200FF4A19 /* Tahona.swift */,
+				6AFF278F2ADD475600FF4A19 /* NajdRegion.swift */,
 				69C843472ADD27D700AAEC6E /* #1 Home page.gif */,
 				69C843412ADD271300AAEC6E /* # 2 Options page.gif */,
 				69C8433D2ADD26EB00AAEC6E /* #5 غلي المكونات.gif */,
@@ -87,7 +103,6 @@
 				69C8432F2ADD25F400AAEC6E /* Assets.xcassets */,
 				69C843312ADD25F400AAEC6E /* Preview Content */,
 				69C843392ADD26AF00AAEC6E /* GifImage.swift */,
-				6A2FD61C2ADD40C2005DC35E /* RegionsView.swift */,
 			);
 			path = FenjalAlhaif;
 			sourceTree = "<group>";
@@ -179,10 +194,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFF27922ADD477C00FF4A19 /* JanobRegion.swift in Sources */,
 				69C8432E2ADD25F300AAEC6E /* ContentView.swift in Sources */,
 				69C8432C2ADD25F300AAEC6E /* FenjalAlhaifApp.swift in Sources */,
 				6A2FD61D2ADD40C2005DC35E /* RegionsView.swift in Sources */,
 				69C8433A2ADD26AF00AAEC6E /* GifImage.swift in Sources */,
+				6AFF27902ADD475600FF4A19 /* NajdRegion.swift in Sources */,
+				6AFF27942ADD479F00FF4A19 /* ShamaliahRegion.swift in Sources */,
+				6AFF27982ADD481200FF4A19 /* Tahona.swift in Sources */,
+				6AFF27962ADD47D300FF4A19 /* VibrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
