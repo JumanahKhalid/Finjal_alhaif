@@ -72,7 +72,7 @@ struct NajdRegion: View {
                     }) {
                         Image(systemName: "arrow.right.circle")
                             .font(.system(size: 40))
-                            .tint(.red)
+                            .tint(.white)
                             .shadow(radius:50)
                             
                     }

@@ -93,6 +93,7 @@ struct JanobRegion: View {
 
 
 struct JanobTahona: View {
+    @State var goToJanoobIngs:Bool = false
     var body: some View {
         ZStack{
             
@@ -101,6 +102,17 @@ struct JanobTahona: View {
                 sVibrationView()
             }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
            
+            Button(action: {
+                goToJanoobIngs = true
+            }) {
+                Image(systemName: "arrow.right.circle")
+                    .font(.system(size: 40))
+                    .tint(.white)
+                    .shadow(radius: 50)
+            }
+            .offset(x: 350, y: -10)
+            .fullScreenCover(isPresented: $goToJanoobIngs, content: jIngredients.init )
+            
             
             
         }
@@ -134,16 +146,17 @@ struct jVibrationView: View {
                 .animation(isVibrating ? .linear(duration: 0.1).repeatForever() : .default)
                 .offset(x: isVibrating ? 15 : 0, y: -20)
         }
-        Button(action: {
-            goTonNext = true
-        }) {
-            Image(systemName: "arrow.right.circle")
-                .font(.system(size: 40))
-                .tint(.white)
-                .shadow(radius: 50)
-        }
-        .offset(x: 350, y: -10)
-        .fullScreenCover(isPresented: $goTonNext, content: jIngredients.init )
+//        Button(action: {
+//            goTonNext = true
+//        }) {
+//            Image(systemName: "arrow.right.circle")
+//                .font(.system(size: 40))
+//                .tint(.white)
+//                .shadow(radius: 50)
+//        }
+//        .offset(x: 350, y: -10)
+//        .fullScreenCover(isPresented: $goTonNext, content: jIngredients.init )
+       
         //.fullScreenCover(isPresented: $goTonNext, content: {
             //jIngredients.init()
        // })
@@ -179,7 +192,7 @@ struct jIngredients: View {
     @State private var jingredients: [Ingredient] = [
         Ingredient(name: "قهوة مطحونة"),
         Ingredient(name: "زعفران"),
-       // Ingredient(name: "هيل"),
+        Ingredient(name: "هيل"),
         Ingredient(name: "شمر"),
         Ingredient(name: "زنجبيل"),
         Ingredient(name: "قرنفل"),

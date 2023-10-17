@@ -56,7 +56,6 @@ struct ShamaliahRegion: View {
                 .frame(width: 430, height: 430)
                 .buttonStyle(.bordered)
                 .tint(.clear)
-               // .opacity(0)
                 .shadow(radius: 50)
                 .offset(x: 320, y: 50)
                 
@@ -76,7 +75,8 @@ struct ShamaliahRegion: View {
                             
                     }
                     .offset(x: 300, y: -10)
-                    //.fullScreenCover(isPresented: $isPresented, content: Tahona.init )
+                    .fullScreenCover(isPresented: $isPresented, content: ShamaliahTahona.init )
+                    
                       
                 }
             }
@@ -138,9 +138,11 @@ struct sVibrationView: View {
                 .shadow(radius: 50)
         }
         .offset(x: 300, y: -10)
-        .fullScreenCover(isPresented: $goTonNext, content: {
-            sIngredients()
-        })
+        .fullScreenCover(isPresented: $goTonNext, content: sIngredients.init )
+//        .fullScreenCover(isPresented: $goTonNext, content: {
+//            sIngredients.init()
+//        })
+        
         
         .edgesIgnoringSafeArea(.all)
     }
@@ -170,6 +172,7 @@ struct sIngredients: View {
         Ingredient(name: "هيل")
         
     ]
+    
     @State private var goToPour: Bool = false
     var body: some View {
         ZStack {
