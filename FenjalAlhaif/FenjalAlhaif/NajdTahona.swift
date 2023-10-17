@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct NajdTahona: View {
-    var body: some View {
-        ZStack{
-            
-            ZStack{
-                GifBackground(gifName: "خلفية الطاحونة")
-                nVibrationView()
-            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-           
-            
-            
-        }
-    }
-}
+//struct NajdTahona: View {
+//    var body: some View {
+//        ZStack{
+//            
+//            ZStack{
+//                GifBackground(gifName: "خلفية الطاحونة")
+//                nVibrationView()
+//            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+//           
+//            
+//            
+//        }
+//    }
+//}

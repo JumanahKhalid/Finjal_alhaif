@@ -35,7 +35,7 @@ struct PourView: View {
                         .fill(Color.yellow)
                         .frame(width: 110, height: 90)
                         .opacity(0.5)
-                        .offset(x: 0, y: -10)
+                        .offset(x: 10, y: -9)
                         .cornerRadius(20)
 
                 }
@@ -100,14 +100,31 @@ struct PourView: View {
 //-------------------
 
 struct TestingBTN: View {
+    
+    @State var showAlert = false
+    @State var showTestingView = false
+    
     var body: some View {
-        VStack{
-            GifImage("الشايب")
-                .frame(width: 988, height: 450)
-                .offset(x: 40, y: 30)
+        ZStack{
+            VStack{
+                GifImage("الشايب")
+                    .frame(width: 988, height: 450)
+                    .offset(x: 40, y: 30)
+            }
+            
+            Button("ودك تجرب قهوة منطقة ثانية"){
+                showTestingView = true
+            }
+            .fullScreenCover(isPresented: $showTestingView, content: {
+                ContentView.init()
+            })
+            /*.fullScreenCover(isPresented: $showTestingView, content: RegionsView.init)*/
+//            JanobRegion(gifName: "oven1")
+                .offset(x:0 ,y:170)
+            
+        }
         }
     }
-}
 
 //--------------
 
@@ -151,3 +168,9 @@ struct WaterShape: Shape {
     }
 }
 
+struct PourView_Previews: PreviewProvider {
+    static var previews: some View {
+        PourView().previewInterfaceOrientation(.landscapeLeft)
+        
+    }
+}

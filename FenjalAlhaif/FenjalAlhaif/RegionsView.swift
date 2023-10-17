@@ -24,6 +24,7 @@ struct RegionsView: View {
                     .font(.system(size: 20))
                     .buttonStyle(.bordered)
                     .tint(.clear)
+                    //.opacity(0.1)
                     .offset(x: 10, y: 55)
                     
                                           NavigationLink(
@@ -45,6 +46,7 @@ struct RegionsView: View {
                     .font(.system(size: 20))
                     .buttonStyle(.bordered)
                     .tint(.clear)
+                    //.opacity(0)
                     .offset(x: 240, y: 55)
                     
                                           NavigationLink(
@@ -66,6 +68,7 @@ struct RegionsView: View {
                     .font(.system(size: 20))
                     .buttonStyle(.bordered)
                     .tint(.clear)
+                    //.opacity(0)
                     .offset(x: -240, y: 55)
                     
                                           NavigationLink(
@@ -99,3 +102,4 @@ struct RegionsView: View {
         }
     }
 
+//

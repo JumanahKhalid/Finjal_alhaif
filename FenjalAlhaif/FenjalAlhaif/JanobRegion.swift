@@ -60,6 +60,7 @@ struct JanobRegion: View {
                 .frame(width: 430, height: 430)
                 .buttonStyle(.bordered)
                 .tint(.clear)
+                //.opacity(0)
                 .shadow(radius: 50)
                 .offset(x: 320, y: 50)
                 
@@ -74,12 +75,12 @@ struct JanobRegion: View {
                     }) {
                         Image(systemName: "arrow.right.circle")
                             .font(.system(size: 40))
-                            .tint(.red)
+                            .tint(.white)
                             .shadow(radius:50)
                             
                     }
                     .offset(x: 350, y: -10)
-                    //.fullScreenCover(isPresented: $isPresented, content: Tahona.init )
+                    .fullScreenCover(isPresented: $navigateToTahona, content: JanobTahona.init )
                       
                 }
             }
@@ -87,15 +88,31 @@ struct JanobRegion: View {
         .ignoresSafeArea()
     }
 }
-import SwiftUI
-import AVFoundation
+//import SwiftUI
+//import AVFoundation
+
+
+struct JanobTahona: View {
+    var body: some View {
+        ZStack{
+            
+            ZStack{
+                GifBackground(gifName: "خلفية الطاحونة")
+                sVibrationView()
+            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+           
+            
+            
+        }
+    }
+}
 
 
 struct jVibrationView: View {
     @State private var isVibrating = false
     @State private var vibrationDuration: Double = 0.0
     //@State var didTap = false
-    @State private var goToIng: Bool = false
+    @State private var goTonNext: Bool = false
     let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "pour12", withExtension: "mp3")!)
     
     var body: some View {
@@ -118,16 +135,18 @@ struct jVibrationView: View {
                 .offset(x: isVibrating ? 15 : 0, y: -20)
         }
         Button(action: {
-            goToIng = true
+            goTonNext = true
         }) {
             Image(systemName: "arrow.right.circle")
                 .font(.system(size: 40))
-                .tint(.red)
+                .tint(.white)
                 .shadow(radius: 50)
         }
-        .fullScreenCover(isPresented: $goToIng, content: {
-            jIngredients()
-        })
+        .offset(x: 350, y: -10)
+        .fullScreenCover(isPresented: $goTonNext, content: jIngredients.init )
+        //.fullScreenCover(isPresented: $goTonNext, content: {
+            //jIngredients.init()
+       // })
         
         .edgesIgnoringSafeArea(.all)
     }
@@ -157,17 +176,19 @@ struct jIngredients: View {
         
     }
     
-    @State private var ingredients: [Ingredient] = [
+    @State private var jingredients: [Ingredient] = [
+        Ingredient(name: "قهوة مطحونة"),
         Ingredient(name: "زعفران"),
-        Ingredient(name: "هيل"),
+       // Ingredient(name: "هيل"),
         Ingredient(name: "شمر"),
         Ingredient(name: "زنجبيل"),
         Ingredient(name: "قرنفل"),
-        Ingredient(name: "قرفة"),
-        Ingredient(name: "قهوة مطحونة")
+        Ingredient(name: "قرفة")
     ]
     
     @State private var goToPour = false
+    
+    
     var body: some View {
         ZStack {
             
@@ -177,33 +198,33 @@ struct jIngredients: View {
         
             
             HStack {
-                ForEach(ingredients) { ingredient in
-                    if !ingredient.isPlaced {
-                        Image(ingredient.name)
+                ForEach(jingredients) { jingredient in
+                    if !jingredient.isPlaced {
+                        Image(jingredient.name)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 300, height: 300)
-                            .position(ingredient.position)
+                            .position(jingredient.position)
                             .offset(x:10,y:-55)
 .gesture(
  DragGesture()
 .onChanged { gesture in
-let index = ingredients.firstIndex { $0.id == ingredient.id }
-    ingredients[index!].dragOffset = gesture.translation
+let index = jingredients.firstIndex { $0.id == jingredient.id }
+    jingredients[index!].dragOffset = gesture.translation
                                     }
     .onEnded { gesture in
-let index = ingredients.firstIndex { $0.id == ingredient.id }
-ingredients[index!].position.x += gesture.translation.width
-ingredients[index!].position.y += gesture.translation.height
-ingredients[index!].dragOffset = CGSize.zero
+let index = jingredients.firstIndex { $0.id == jingredient.id }
+jingredients[index!].position.x += gesture.translation.width
+jingredients[index!].position.y += gesture.translation.height
+jingredients[index!].dragOffset = CGSize.zero
                                         
 let threshold: CGFloat = 100
-if abs(ingredients[index!].position.x - 500) < threshold && abs(ingredients[index!].position.y - 300) < threshold {
+if abs(jingredients[index!].position.x - 500) < threshold && abs(jingredients[index!].position.y - 300) < threshold {
 // Placed correctly
-ingredients[index!].isPlaced = true
+jingredients[index!].isPlaced = true
                                         } else {
 // Not placed correctly, reset position
-ingredients[index!].position = CGPoint(x: 100, y: 100)
+jingredients[index!].position = CGPoint(x: 100, y: 100)
                                         }
                                     }
                             )
@@ -216,12 +237,21 @@ ingredients[index!].position = CGPoint(x: 100, y: 100)
             }) {
                 Image(systemName: "arrow.right.circle")
                     .font(.system(size: 40))
-                    .tint(.red)
+                    .tint(.white)
                     .shadow(radius: 50)
-            }
+                    
+            }.offset(x: 300, y: -10)
             .fullScreenCover(isPresented: $goToPour, content: PourView.init )
             
             
         }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    }
+}
+
+
+struct JanobTahona_Previews: PreviewProvider {
+    static var previews: some View {
+        JanobTahona().previewInterfaceOrientation(.landscapeLeft)
+        
     }
 }

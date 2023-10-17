@@ -56,6 +56,7 @@ struct ShamaliahRegion: View {
                 .frame(width: 430, height: 430)
                 .buttonStyle(.bordered)
                 .tint(.clear)
+               // .opacity(0)
                 .shadow(radius: 50)
                 .offset(x: 320, y: 50)
                 
@@ -70,11 +71,11 @@ struct ShamaliahRegion: View {
                     }) {
                         Image(systemName: "arrow.right.circle")
                             .font(.system(size: 40))
-                            .tint(.red)
+                            .tint(.white)
                             .shadow(radius:50)
                             
                     }
-                    .offset(x: 350, y: -10)
+                    .offset(x: 300, y: -10)
                     //.fullScreenCover(isPresented: $isPresented, content: Tahona.init )
                       
                 }
@@ -83,15 +84,30 @@ struct ShamaliahRegion: View {
         .ignoresSafeArea()
     }
 }
-import SwiftUI
-import AVFoundation
+//import SwiftUI
+//import AVFoundation
 
+
+struct ShamaliahTahona: View {
+    var body: some View {
+        ZStack{
+            
+            ZStack{
+                GifBackground(gifName: "خلفية الطاحونة")
+                sVibrationView()
+            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+           
+            
+            
+        }
+    }
+}
 
 struct sVibrationView: View {
     @State private var isVibrating = false
     @State private var vibrationDuration: Double = 0.0
     //@State var didTap = false
-    @State private var goToIng: Bool = false
+    @State private var goTonNext: Bool = false
     let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "pour12", withExtension: "mp3")!)
     
     var body: some View {
@@ -114,14 +130,15 @@ struct sVibrationView: View {
                 .offset(x: isVibrating ? 15 : 0, y: -20)
         }
         Button(action: {
-            goToIng = true
+            goTonNext = true
         }) {
             Image(systemName: "arrow.right.circle")
                 .font(.system(size: 40))
-                .tint(.red)
+                .tint(.white)
                 .shadow(radius: 50)
         }
-        .fullScreenCover(isPresented: $goToIng, content: {
+        .offset(x: 300, y: -10)
+        .fullScreenCover(isPresented: $goTonNext, content: {
             sIngredients()
         })
         
@@ -149,8 +166,9 @@ struct sIngredients: View {
     }
     
     @State private var ingredients: [Ingredient] = [
-        Ingredient(name: "هيل"),
-        Ingredient(name: "قهوة مطحونة")
+        Ingredient(name: "قهوة مطحونة"),
+        Ingredient(name: "هيل")
+        
     ]
     @State private var goToPour: Bool = false
     var body: some View {
@@ -200,12 +218,21 @@ ingredients[index!].position = CGPoint(x: 100, y: 100)
             }) {
                 Image(systemName: "arrow.right.circle")
                     .font(.system(size: 40))
-                    .tint(.red)
+                    .tint(.white)
                     .shadow(radius: 50)
             }
+            .offset(x: 300, y: -10)
             .fullScreenCover(isPresented: $goToPour, content: PourView.init )
 
             
         }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    }
+}
+
+
+struct sShamaliahTahona_Previews: PreviewProvider {
+    static var previews: some View {
+        ShamaliahTahona().previewInterfaceOrientation(.landscapeLeft)
+        
     }
 }

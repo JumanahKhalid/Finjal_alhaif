@@ -57,6 +57,7 @@ struct NajdRegion: View {
                 .frame(width: 430, height: 430)
                 .buttonStyle(.bordered)
                 .tint(.clear)
+                //.opacity(0)
                 .shadow(radius: 50)
                 .offset(x: 320, y: 50)
                 
@@ -86,15 +87,27 @@ struct NajdRegion: View {
 }
 
 
-import SwiftUI
-import AVFoundation
+struct NajdTahona: View {
+    var body: some View {
+        ZStack{
+            
+            ZStack{
+                GifBackground(gifName: "خلفية الطاحونة")
+                nVibrationView()
+            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+           
+            
+            
+        }
+    }
+}
 
 
 struct nVibrationView: View {
     @State private var isVibrating = false
     @State private var vibrationDuration: Double = 0.0
     //@State var didTap = false
-    @State private var goToIng: Bool = false
+    @State private var goTonNext: Bool = false
     let player = try? AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "pour12", withExtension: "mp3")!)
     
     var body: some View {
@@ -117,14 +130,15 @@ struct nVibrationView: View {
                 .offset(x: isVibrating ? 15 : 0, y: -20)
         }
         Button(action: {
-            goToIng = true
+            goTonNext = true
         }) {
             Image(systemName: "arrow.right.circle")
                 .font(.system(size: 40))
-                .tint(.red)
+                .tint(.white)
                 .shadow(radius: 50)
         }
-        .fullScreenCover(isPresented: $goToIng, content: {
+        .offset(x:300, y:-10)
+        .fullScreenCover(isPresented: $goTonNext, content: {
             nIngredients()
         })
         
@@ -207,11 +221,20 @@ ingredients[index!].position = CGPoint(x: 100, y: 100)
             }) {
                 Image(systemName: "arrow.right.circle")
                     .font(.system(size: 40))
-                    .tint(.red)
+                    .tint(.white)
                     .shadow(radius: 50)
             }
+            .offset(x: 300, y: -10)
             .fullScreenCover(isPresented: $goToPour, content: PourView.init )
 
         }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    }
+}
+
+
+struct NajdTahona_Previews: PreviewProvider {
+    static var previews: some View {
+        NajdTahona().previewInterfaceOrientation(.landscapeLeft)
+        
     }
 }

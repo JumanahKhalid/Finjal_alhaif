@@ -27,7 +27,7 @@ class AudioPlayerManager: ObservableObject {
             audioPlayer?.play()
         } catch {
             print("Failed to play the audio: \(error)")
-        }
+        } 
     }
     
     func stopBackgroundMusic() {
